@@ -14,6 +14,7 @@
 # the pinned toolchain is upgraded.
 #
 # Usage: tools/build_examples.sh   (run from the repository root)
+# (branch-protection smoke test: this comment is a trivial, reversible change)
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
