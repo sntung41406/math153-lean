@@ -13,7 +13,12 @@ Checks:
   3. Examples/*.lean exactly matches what tools/extract_lean_examples.py would
      regenerate from the tracked Modules/**/*.md right now (catches hand-edits
      to generated files, and notes edited without re-running the pipeline).
-  4. `sorry` appears only in the files explicitly allow-listed below.
+  4. `sorry` appears *exactly once*, and only in the one file explicitly
+     allow-listed below (not zero times, not more -- an allow-listed filename
+     alone would still let extra accidental placeholders through). `admit`
+     and direct `sorryAx` use (the axiom `sorry` itself elaborates to; using
+     it directly bypasses the word `sorry` entirely) are rejected everywhere,
+     including in the allow-listed file.
 
 Usage: python3 tools/validate.py
 """
@@ -34,12 +39,14 @@ SKIP_DIRS = {".git", ".lake", ".github"}
 WIKILINK_RE = re.compile(r"!?\[\[")
 MD_LINK_RE = re.compile(r"(?<!!)\[[^\]]*\]\(([^)]+)\)")
 SORRY_RE = re.compile(r"\bsorry\b")
+ADMIT_RE = re.compile(r"\badmit\b")
+SORRYAX_RE = re.compile(r"\bsorryAx\b")
 
-# Files where a deliberate, teaching `sorry` is expected. Any other .lean file
-# containing `sorry` fails validation -- update this list only when a new note
-# deliberately teaches `sorry`.
+# Files where exactly one deliberate, teaching `sorry` is expected -- not
+# zero, not more. Update this list, and the expected count, only when a new
+# note deliberately teaches `sorry`.
 SORRY_ALLOWLIST = {
-    "Examples/Module0SorryPlaceholderExample.lean",
+    "Examples/Module0SorryPlaceholderExample.lean": 1,
 }
 
 
@@ -116,12 +123,47 @@ def check_generated_freshness() -> list[str]:
         return errors
 
 
-def check_sorry_allowlist() -> list[str]:
+BLOCK_COMMENT_RE = re.compile(r"/-.*?-/", re.DOTALL)
+LINE_COMMENT_RE = re.compile(r"--.*$", re.MULTILINE)
+
+
+def strip_lean_comments(text: str) -> str:
+    """Drop comments before scanning for sorry/admit/sorryAx.
+
+    Otherwise a comment merely *mentioning* one of these words -- e.g. the
+    generated header "Extracted from ... sorry placeholder example.md" --
+    would count as a real occurrence.
+    """
+    return LINE_COMMENT_RE.sub("", BLOCK_COMMENT_RE.sub("", text))
+
+
+def check_forbidden_placeholders() -> list[str]:
     errors = []
     for f in iter_files(suffix=".lean"):
         rel = str(f.relative_to(REPO_ROOT))
-        if SORRY_RE.search(f.read_text()) and rel not in SORRY_ALLOWLIST:
-            errors.append(f"{rel}: contains 'sorry' but is not in SORRY_ALLOWLIST (tools/validate.py)")
+        text = strip_lean_comments(f.read_text())
+
+        admit_count = len(ADMIT_RE.findall(text))
+        if admit_count:
+            errors.append(f"{rel}: contains 'admit' ({admit_count}x) -- not a supported placeholder in this course")
+
+        sorryax_count = len(SORRYAX_RE.findall(text))
+        if sorryax_count:
+            errors.append(
+                f"{rel}: contains direct 'sorryAx' use ({sorryax_count}x) -- "
+                f"this bypasses the 'sorry' allow-list check and is rejected everywhere"
+            )
+
+        sorry_count = len(SORRY_RE.findall(text))
+        expected = SORRY_ALLOWLIST.get(rel)
+        if expected is None:
+            if sorry_count:
+                errors.append(f"{rel}: contains 'sorry' ({sorry_count}x) but is not in SORRY_ALLOWLIST (tools/validate.py)")
+        elif sorry_count != expected:
+            errors.append(
+                f"{rel}: expected exactly {expected} 'sorry' occurrence(s) (the deliberate teaching "
+                f"example), found {sorry_count}"
+            )
     return errors
 
 
@@ -131,7 +173,7 @@ def main() -> int:
     errors += check_no_wikilinks(md_files)
     errors += check_links_resolve(md_files)
     errors += check_generated_freshness()
-    errors += check_sorry_allowlist()
+    errors += check_forbidden_placeholders()
 
     if errors:
         print("VALIDATION FAILED:")
