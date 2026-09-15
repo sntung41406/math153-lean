@@ -31,7 +31,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | Week | Module | Topic |
 |:---|:---|:---|
 | 1 | 0 | [Preface](Modules/00-preface/00-Preface.md) |
-| 2 | 1 | Proofs by Calculation |
+| 2 | 1 | [Proofs by Calculation](Modules/01-proofs-by-calculation/01-Proofs%20by%20Calculation.md) |
 | 3 | 2 | Proofs with Structure |
 | 4 | 3 | Parity, Divisibility & Number Theory |
 | 5 | 4 | Proofs with Structure, II |
@@ -75,8 +75,9 @@ This repository is not a channel for submitting coursework — see [Contributing
 ## Slides
 
 - [Lecture 1 — Introduction](Slides/0-Introduction-slides.html)
+- [Module 1 — Proofs by Calculation](Slides/1-Proofs-by-Calculation-slides.html)
 
-Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content; this is the only deck published so far.
+Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 
 ## Contributing
 
