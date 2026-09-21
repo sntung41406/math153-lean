@@ -11,8 +11,10 @@ Checks:
   1. No `[[...]]` / `![[...]]` wiki-link syntax survives anywhere in tracked Markdown.
   2. Every relative Markdown link resolves to a file that actually exists in the repo.
   3. Examples/*.lean exactly matches what tools/extract_lean_examples.py would
-     regenerate from the tracked Modules/**/*.md right now (catches hand-edits
-     to generated files, and notes edited without re-running the pipeline).
+     regenerate from the tracked Modules/**/*.md and Glossary/**/*.md right now
+     (catches hand-edits to generated files, and notes edited without re-running
+     the pipeline). Glossary pages are exported notes like any other, so their
+     fenced `lean` blocks are extracted too and must be covered here.
   4. `sorry` appears *exactly once*, and only in the one file explicitly
      allow-listed below (not zero times, not more -- an allow-listed filename
      alone would still let extra accidental placeholders through). `admit`
@@ -91,7 +93,8 @@ def check_generated_freshness() -> list[str]:
 
     doc_names = [
         str(p.relative_to(REPO_ROOT))[:-3]
-        for p in sorted((REPO_ROOT / "Modules").rglob("*.md"))
+        for root in ("Modules", "Glossary")
+        for p in sorted((REPO_ROOT / root).rglob("*.md"))
     ]
 
     with tempfile.TemporaryDirectory() as tmp:

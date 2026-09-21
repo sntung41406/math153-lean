@@ -22,6 +22,8 @@ This repository holds the student-facing lecture notes, slides, and Lean project
 
 Every module note and Lean example page here is plain Markdown — it renders directly on GitHub, and every link between pages is a working relative Markdown link, so you can read the whole course by clicking through from [Module 0](Modules/00-preface/00-Preface.md).
 
+A [glossary](Glossary/Glossary.md) collects the Lean vocabulary the course uses — every command, tactic, symbol and named lemma gets a short page with a plain-English meaning, a minimal example, and one official documentation link. Module notes link to an entry at its first meaningful use, so you can follow a term when you meet it or browse the index on its own.
+
 The course is authored in [Obsidian](https://obsidian.md/) internally, with pages linked by backlinks and a shared vault. **Obsidian is not required** — no class activity depends on it. If you'd like linked, searchable notes with backlinks, cloning this repository and opening its folder as an Obsidian vault works too; if you'd rather just read on GitHub, this README and the module notes are the fully supported path.
 
 ## Course schedule
@@ -32,7 +34,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 |:---|:---|:---|
 | 1 | 0 | [Preface](Modules/00-preface/00-Preface.md) |
 | 2 | 1 | [Proofs by Calculation](Modules/01-proofs-by-calculation/01-Proofs%20by%20Calculation.md) |
-| 3 | 2 | Proofs with Structure |
+| 3 | 2 | [Proofs with Structure](Modules/02-proofs-with-structure/02-Proofs%20with%20Structure.md) |
 | 4 | 3 | Parity, Divisibility & Number Theory |
 | 5 | 4 | Proofs with Structure, II |
 | 6 | — | **Consolidation week** — extended practice across Modules 0–4 |
@@ -76,6 +78,7 @@ This repository is not a channel for submitting coursework — see [Contributing
 
 - [Lecture 1 — Introduction](Slides/0-Introduction-slides.html)
 - [Module 1 — Proofs by Calculation](Slides/1-Proofs-by-Calculation-slides.html)
+- [Module 2 — Proofs with Structure](Slides/2-Proofs-with-Structure-slides.html)
 
 Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 
@@ -87,5 +90,5 @@ Do not use this repository, its issues, or its pull requests to submit coursewor
 
 ## License
 
-- Lecture notes and slides (`Modules/`, `Slides/`) are licensed [CC BY-NC-SA 4.0](LICENSE-DOCS).
+- Lecture notes, glossary, and slides (`Modules/`, `Glossary/`, `Slides/`) are licensed [CC BY-NC-SA 4.0](LICENSE-DOCS).
 - Lean code (`Examples/`, project files) is licensed [Apache License 2.0](LICENSE), matching [Mathlib](https://github.com/leanprover-community/mathlib4)'s own license.
