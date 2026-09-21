@@ -44,7 +44,14 @@ def main() -> int:
     manifest = json.loads(args.manifest.read_text())
     include = manifest.get("include", [])
 
-    written = 0
+    # First pass: collect the blocks and the generated module name each note
+    # claims. Two notes can normalise to the same Lean module name -- the
+    # mangler drops every character outside [A-Za-z0-9], so `mul_right_cancel₀`
+    # and a future `mul_right_cancel` would both become `MulRightCancel`. Writing
+    # both would silently publish one note's examples under the other's name, so
+    # collisions fail the extraction before anything is written.
+    planned: dict[str, tuple[str, list[str]]] = {}
+    collisions: list[str] = []
     for doc_name in include:
         src = REPO_ROOT / f"{doc_name}.md"
         if not src.exists():
@@ -55,7 +62,27 @@ def main() -> int:
         if not blocks:
             continue
 
-        dest = args.out / "Examples" / f"{lean_module_name(Path(doc_name).name)}.lean"
+        module = lean_module_name(Path(doc_name).name)
+        if module in planned:
+            collisions.append(
+                f"{module}.lean is claimed by both {planned[module][0]}.md and {doc_name}.md"
+            )
+            continue
+        planned[module] = (doc_name, blocks)
+
+    if collisions:
+        print("EXTRACT FAILED: generated module name collision:", file=sys.stderr)
+        for c in collisions:
+            print(f"  - {c}", file=sys.stderr)
+        print(
+            "  rename one of the source notes so the generated names differ",
+            file=sys.stderr,
+        )
+        return 1
+
+    written = 0
+    for module, (doc_name, blocks) in planned.items():
+        dest = args.out / "Examples" / f"{module}.lean"
         dest.parent.mkdir(parents=True, exist_ok=True)
         body = HEADER.format(source=f"{doc_name}.md")
         body += "\n\n".join(block.rstrip() for block in blocks) + "\n"

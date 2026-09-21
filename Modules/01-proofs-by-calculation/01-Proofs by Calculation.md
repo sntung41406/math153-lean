@@ -3,9 +3,9 @@
 ## Learning goals
 
 By the end of this lecture, you can:
-- Read and construct a `calc` chain in which each step follows from the last.
-- Use forward and reverse `rw` to substitute an equality.
-- Use `norm_num`, and recognise `ring` as a checker for a rearrangement already identified on paper.
+- Read and construct a [`calc`](../../Glossary/calc.md) chain in which each step follows from the last.
+- Use forward and reverse [`rw`](../../Glossary/rw.md) to substitute an equality.
+- Use [`norm_num`](../../Glossary/norm_num.md), and recognise [`ring`](../../Glossary/ring.md) as a checker for a rearrangement already identified on paper.
 - Check whether a simple inequality step has the correct direction.
 
 ## Motivation
@@ -25,6 +25,8 @@ The simplest chain replaces a known value and then computes.
 **Proof.** $\text{total}-4=12-4=8$.
 
 Every line in a `calc` chain must follow from the line above it — that is the whole discipline, before any tactic choice matters.
+
+In the Lean version linked below, `_` in later `calc` lines stands for the right-hand side of the preceding line. The proof after `:=` must close that one individual link.
 
 See this proof formalized in Lean: [Module 1 - Numeric calculation](Lean/Module%201%20-%20Numeric%20calculation.md)
 
@@ -96,21 +98,22 @@ A common trick for inequalities: since squares (and other manifestly nonnegative
 
 **Proof.** Since $m^2\ge 0$, we get $n\le m^2+n\le 2$.
 
-See this proof formalized in Lean: [Module 1 - nlinarith square example](Lean/Module%201%20-%20nlinarith%20square%20example.md)
+See this proof formalized in Lean: [Module 1 - Linear and nonlinear automation](Lean/Module%201%20-%20nlinarith%20square%20example.md)
 
-### Automation shortcuts: `linarith` and `nlinarith`
+### Automation shortcuts: [`linarith`](../../Glossary/linarith.md) and [`nlinarith`](../../Glossary/nlinarith.md)
 
-Once you can build a chain by hand, `linarith` and `nlinarith` automate steps that are purely linear (or, for `nlinarith`, a bounded amount of nonlinear reasoning) — they are shortcuts for a chain you already understand, not a replacement for understanding it. For example, from $a-2b=1$ we can conclude $a=2b+1$ directly, without spelling out an algebra step, and this covers more ground than it might look: even solving $3w+1=4$ for $w$ — which needs dividing by a coefficient — collapses to one step. The real limit of `linarith` is a product or power of unknowns (like `x * y` or `m ^ 2`), which it treats as an opaque term rather than reasoning about — `nlinarith` can close some of these goals, as in the nonnegativity example above, but may need an extra fact handed to it (like `sq_nonneg m`) or a hand-planned calculation instead.
+Once you can build a chain by hand, `linarith` and `nlinarith` automate steps that are purely linear (or, for `nlinarith`, a bounded amount of nonlinear reasoning) — they are shortcuts for a chain you already understand, not a replacement for understanding it. For example, from $a-2b=1$ we can conclude $a=2b+1$ directly, without spelling out an algebra step, and this covers more ground than it might look: even solving $3w+1=4$ for $w$ — which needs dividing by a coefficient — collapses to one step. The real limit of `linarith` is a product or power of unknowns (like `x * y` or `m ^ 2`), which it treats as an opaque term rather than reasoning about. Handing it a fact about that term can be enough: in the nonnegativity example above, `linarith [sq_nonneg m]` works because `m ^ 2` only ever appears as one opaque term. When the reasoning genuinely multiplies facts together — from $0\le x$ and $0\le y$, conclude $0\le xy$ — `linarith` cannot help; `nlinarith` can close some of these goals, or you can plan the calculation by hand.
 
 Try both tactics on today's examples as optional self-practice; they are revisited properly in the Week 2 Lecture 2 practice session for this module.
 
-See these shortcuts formalized in Lean: [Module 1 - linarith shortcut](Lean/Module%201%20-%20linarith%20shortcut.md) and [Module 1 - nlinarith square example](Lean/Module%201%20-%20nlinarith%20square%20example.md)
+See these shortcuts formalized in Lean: [Module 1 - linarith shortcut](Lean/Module%201%20-%20linarith%20shortcut.md) and [Module 1 - Linear and nonlinear automation](Lean/Module%201%20-%20nlinarith%20square%20example.md)
 
 ## Common pitfalls
 
+- **Choosing the number system too late.** Choose the number system before rearranging. On `ℕ`, subtraction stops at zero and division rounds down; calculations involving negative results or ordinary fractions usually belong in `ℤ`, `ℚ`, or `ℝ`.
 - **Chaining inequalities that don't actually chain.** Before chaining inequalities, check that both arrows point from the first expression toward the last.
 - **Forgetting to reverse an inequality under a negative multiplier or subtraction.** Multiplying (or dividing) both sides by a negative number flips the direction; subtracting from a fixed quantity also reverses which side is larger.
-- **Confusing a linear deduction with one that involves a product of unknowns.** A deduction built only from addition, subtraction, and multiplication/division by *constants* — even one requiring you to divide by a coefficient, like solving $3w+1=4$ for $w$ — can be closed by `linarith` in a single step; a product or power of unknowns (like $xy$ or $m^2$) is outside `linarith`'s scope and needs `nlinarith` (possibly with an extra fact) or an explicit algebraic step instead.
+- **Confusing a linear deduction with one that involves a product of unknowns.** A deduction built only from addition, subtraction, and multiplication/division by *constants* — even one requiring you to divide by a coefficient, like solving $3w+1=4$ for $w$ — can be closed by `linarith` in a single step; a product or power of unknowns (like $xy$ or $m^2$) is an opaque term to `linarith`, so it succeeds only when you supply the needed fact about that term (such as `sq_nonneg m`); a step that multiplies facts together needs `nlinarith` or an explicit algebraic step instead.
 
 ## References
 

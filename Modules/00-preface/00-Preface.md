@@ -5,8 +5,8 @@
 By the end of this lecture, you can:
 - Explain why we check proofs with Lean instead of only writing them in words.
 - Tell apart the three roles an expression can play in Lean: mathematical object, proposition (`Prop`), and proof.
-- Open a `.lean` file in VS Code, enter common Unicode symbols, and read the **Lean Infoview** panel to tell what `#check` reports from what `#eval` runs.
-- Recognize what `sorry` means and why a proof containing it is not finished.
+- Open a `.lean` file in VS Code, enter common Unicode symbols, and read the **[Lean Infoview](../../Glossary/Infoview.md)** panel to tell what [`#check`](../../Glossary/check.md) reports from what [`#eval`](../../Glossary/eval.md) runs.
+- Recognize what [`sorry`](../../Glossary/sorry.md) means and why a proof containing it is not finished.
 
 ## Motivation
 
@@ -41,7 +41,7 @@ Everything below is an *expression*; these are not three separate species of thi
   - `#check 2 + 2 = 4` yields `2 + 2 = 4 : Prop`.
   - A proposition can be named like anything else: after `def MyStatement : Prop := 2 + 2 = 4`, `#check MyStatement` yields `MyStatement : Prop`.
 - **Proofs**: an expression `p` whose type is a proposition `P` (written `p : P`) *is* a proof of `P`.
-  - `theorem easy : 2 + 2 = 4 := rfl` records `rfl` as a proof of `2 + 2 = 4`, and names that proof `easy`.
+  - `theorem easy : 2 + 2 = 4 := rfl` records [`rfl`](../../Glossary/rfl.md) as a proof of `2 + 2 = 4`, and names that proof `easy`.
   - So the same expression can be described two ways depending on where you stand: `2 + 2 = 4` is a proposition when you ask for *its* type, and it is the *type of* `easy`. Stating something and proving it are one level apart, not two different worlds.
 
 A quick distinction worth fixing now: `#check` reports an expression's type, while `#eval` actually executes computable data and prints the result. The concrete example page below works through both side by side.
@@ -50,7 +50,7 @@ A note on reading output: comments in these notes describe what Lean reports, bu
 
 ### 2. Proof Styles: Term Mode vs. Tactic Mode
 - **Term-Style Proofs**: Directly writing a functional code term that fulfills the proposition type (e.g., using lambda abstractions `fun m n ↦ ...`).
-- **Tactic-Style Proofs**: Writing interactive commands inside a `by` block. Each line in a `by` block transforms the current proof state inside the Infoview until no goals remain.
+- **Tactic-Style Proofs**: Writing interactive commands inside a [`by`](../../Glossary/by.md) block. Each line in a `by` block transforms the current proof state inside the Infoview until no goals remain.
 
 ### 3. Proof State & Infoview Mechanics
 While a tactic proof is in progress, the Lean Infoview pane separates the situation into two parts, divided by the symbol `⊢`:

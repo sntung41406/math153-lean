@@ -6,5 +6,8 @@ import Mathlib
 
 example {m n : ℤ} (h : m ^ 2 + n ≤ 2) : n ≤ 2 := by
   calc
-    n ≤ m ^ 2 + n := by nlinarith [sq_nonneg m]
+    n ≤ m ^ 2 + n := by linarith [sq_nonneg m]
     _ ≤ 2         := by linarith
+
+example {x y : ℝ} (hx : 0 ≤ x) (hy : 0 ≤ y) : 0 ≤ x * y := by
+  nlinarith
