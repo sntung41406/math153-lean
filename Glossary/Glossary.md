@@ -1,9 +1,12 @@
 # Glossary
 
-Reusable Lean vocabulary pages. Each entry gives a plain-English meaning, a minimal example, when to use it, and one official documentation link. Module notes link to a glossary entry at its first meaningful use.
+Reusable Lean vocabulary pages. Each entry gives a plain-English meaning, a minimal example, when to use it, and one reference link. Module notes link to a glossary entry at its first meaningful use.
 
 ## Week 1
 
+- [`def`](def.md)
+- [`theorem`](theorem.md)
+- [`example`](example.md)
 - [`#check`](check.md)
 - [`#eval`](eval.md)
 - [`rfl`](rfl.md)
@@ -20,6 +23,7 @@ Reusable Lean vocabulary pages. Each entry gives a plain-English meaning, a mini
 - [`linarith`](linarith.md)
 - [`nlinarith`](nlinarith.md)
 - [`add_le_add_left`](add_le_add_left.md)
+- [`sq_nonneg`](sq_nonneg.md)
 
 ## Week 3
 
@@ -53,7 +57,6 @@ Named lemmas used by the Module 2 examples:
 - [`lt_or_ge`](lt_or_ge.md)
 - [`eq_zero_or_eq_zero_of_mul_eq_zero`](eq_zero_or_eq_zero_of_mul_eq_zero.md)
 - [`Nat.pow_le_pow_left`](Nat.pow_le_pow_left.md)
-- [`sq_nonneg`](sq_nonneg.md)
 
 ## What gets an entry
 
