@@ -39,9 +39,9 @@ Everything below is an *expression*; these are not three separate species of thi
   - `#check fun n : Nat => n + 1` reports a function from natural numbers to natural numbers: `Nat → Nat`, which `import Mathlib` lets you also write as `ℕ → ℕ`.
 - **Propositions (`Prop`)**: expressions that *assert* something — statements that could be true or false.
   - `#check 2 + 2 = 4` yields `2 + 2 = 4 : Prop`.
-  - A proposition can be named like anything else: after `def MyStatement : Prop := 2 + 2 = 4`, `#check MyStatement` yields `MyStatement : Prop`.
+  - A proposition can be named like anything else: [`def`](../../Glossary/def.md) names it, as in `def MyStatement : Prop := 2 + 2 = 4`, and `#check MyStatement` yields `MyStatement : Prop`.
 - **Proofs**: an expression `p` whose type is a proposition `P` (written `p : P`) *is* a proof of `P`.
-  - `theorem easy : 2 + 2 = 4 := rfl` records [`rfl`](../../Glossary/rfl.md) as a proof of `2 + 2 = 4`, and names that proof `easy`.
+  - Naming a proof uses [`theorem`](../../Glossary/theorem.md): `theorem easy : 2 + 2 = 4 := rfl` records [`rfl`](../../Glossary/rfl.md) as a proof of `2 + 2 = 4`, and names that proof `easy`.
   - So the same expression can be described two ways depending on where you stand: `2 + 2 = 4` is a proposition when you ask for *its* type, and it is the *type of* `easy`. Stating something and proving it are one level apart, not two different worlds.
 
 A quick distinction worth fixing now: `#check` reports an expression's type, while `#eval` actually executes computable data and prints the result. The concrete example page below works through both side by side.

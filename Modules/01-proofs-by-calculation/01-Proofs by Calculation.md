@@ -26,7 +26,7 @@ The simplest chain replaces a known value and then computes.
 
 Every line in a `calc` chain must follow from the line above it — that is the whole discipline, before any tactic choice matters.
 
-In the Lean version linked below, `_` in later `calc` lines stands for the right-hand side of the preceding line. The proof after `:=` must close that one individual link.
+In the Lean version linked below, `_` in later `calc` lines stands for the right-hand side of the preceding line. The proof after `:=` must close that one individual link. The Lean version states the goal with [`example`](../../Glossary/example.md) rather than a named `theorem`, since the result is not reused by name.
 
 See this proof formalized in Lean: [Module 1 - Numeric calculation](Lean/Module%201%20-%20Numeric%20calculation.md)
 
@@ -102,7 +102,7 @@ See this proof formalized in Lean: [Module 1 - Linear and nonlinear automation](
 
 ### Automation shortcuts: [`linarith`](../../Glossary/linarith.md) and [`nlinarith`](../../Glossary/nlinarith.md)
 
-Once you can build a chain by hand, `linarith` and `nlinarith` automate steps that are purely linear (or, for `nlinarith`, a bounded amount of nonlinear reasoning) — they are shortcuts for a chain you already understand, not a replacement for understanding it. For example, from $a-2b=1$ we can conclude $a=2b+1$ directly, without spelling out an algebra step, and this covers more ground than it might look: even solving $3w+1=4$ for $w$ — which needs dividing by a coefficient — collapses to one step. The real limit of `linarith` is a product or power of unknowns (like `x * y` or `m ^ 2`), which it treats as an opaque term rather than reasoning about. Handing it a fact about that term can be enough: in the nonnegativity example above, `linarith [sq_nonneg m]` works because `m ^ 2` only ever appears as one opaque term. When the reasoning genuinely multiplies facts together — from $0\le x$ and $0\le y$, conclude $0\le xy$ — `linarith` cannot help; `nlinarith` can close some of these goals, or you can plan the calculation by hand.
+Once you can build a chain by hand, `linarith` and `nlinarith` automate steps that are purely linear (or, for `nlinarith`, a bounded amount of nonlinear reasoning) — they are shortcuts for a chain you already understand, not a replacement for understanding it. For example, from $a-2b=1$ we can conclude $a=2b+1$ directly, without spelling out an algebra step, and this covers more ground than it might look: even solving $3w+1=4$ for $w$ — which needs dividing by a coefficient — collapses to one step. The real limit of `linarith` is a product or power of unknowns (like `x * y` or `m ^ 2`), which it treats as an opaque term rather than reasoning about. Handing it a fact about that term can be enough: in the nonnegativity example above, `linarith [sq_nonneg m]` works — [`sq_nonneg`](../../Glossary/sq_nonneg.md) supplies exactly that fact — because `m ^ 2` only ever appears as one opaque term. When the reasoning genuinely multiplies facts together — from $0\le x$ and $0\le y$, conclude $0\le xy$ — `linarith` cannot help; `nlinarith` can close some of these goals, or you can plan the calculation by hand.
 
 Try both tactics on today's examples as optional self-practice; they are revisited properly in the Week 2 Lecture 2 practice session for this module.
 

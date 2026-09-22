@@ -9,6 +9,6 @@ import Mathlib
 example (b : ℚ) : 0 < b ^ 2 + 1 := by positivity
 ```
 
-**Use it when** the reason a quantity is positive or nonnegative can be read off its shape. It is not meant for facts that depend on your hypotheses; for those, prove the side condition directly (for example with `linarith`).
+**Use it when** the reason a quantity is positive or nonnegative can be read off its shape — including when that reason is a matching sign or nonzero hypothesis already sitting in context. It does not derive such a fact by combining separate inequalities; for that, prove the side condition directly first (for example with `linarith`).
 
 **Reference.** [Mathlib documentation — `Mathlib.Tactic.Positivity.Core`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Tactic/Positivity/Core.html)
