@@ -22,6 +22,35 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEAN_BLOCK_RE = re.compile(r"```lean\n(.*?)```", re.DOTALL)
 
+IMPORT_RE = re.compile(r"^import\s")
+
+
+def join_blocks(blocks: list[str]) -> str:
+    """Join a note's blocks into one file body with every `import` at the top.
+
+    Each block on a page is written to run on its own, so a page with two blocks
+    usually repeats `import Mathlib`. Lean only accepts imports at the start of a
+    file, so the repeats are collected, de-duplicated in order, and hoisted.
+    A page with a single block comes out exactly as before.
+    """
+    imports: list[str] = []
+    bodies: list[str] = []
+    for block in blocks:
+        rest: list[str] = []
+        for line in block.rstrip().splitlines():
+            if IMPORT_RE.match(line):
+                if line not in imports:
+                    imports.append(line)
+            else:
+                rest.append(line)
+        body = "\n".join(rest).strip("\n")
+        if body:
+            bodies.append(body)
+    parts = ["\n".join(imports)] if imports else []
+    parts += bodies
+    return "\n\n".join(parts) + "\n"
+
+
 def lean_module_name(stem: str) -> str:
     """Turn an arbitrary note name into a valid Lean module identifier."""
     words = re.split(r"[^A-Za-z0-9]+", stem)
@@ -85,7 +114,7 @@ def main() -> int:
         dest = args.out / "Examples" / f"{module}.lean"
         dest.parent.mkdir(parents=True, exist_ok=True)
         body = HEADER.format(source=f"{doc_name}.md")
-        body += "\n\n".join(block.rstrip() for block in blocks) + "\n"
+        body += join_blocks(blocks)
         dest.write_text(body)
         written += 1
 
