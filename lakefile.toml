@@ -8,3 +8,7 @@ rev = "v4.33.1"
 
 [[lean_lib]]
 name = "Examples"
+# Build every module under Examples/. Without this, Lake looks for a root file
+# Examples.lean, which does not exist, and plain `lake build` fails with
+# "some modules have bad imports".
+globs = ["Examples.+"]

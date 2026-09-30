@@ -20,7 +20,7 @@ jobs:
         run: lake exe cache get
 
       - name: Build
-        run: tools/build_examples.sh
+        run: lake build
 
       - name: Validate public Markdown and generated files
         run: python3 tools/validate.py
