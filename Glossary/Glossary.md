@@ -58,6 +58,32 @@ Named lemmas used by the Module 2 examples:
 - [`eq_zero_or_eq_zero_of_mul_eq_zero`](eq_zero_or_eq_zero_of_mul_eq_zero.md)
 - [`Nat.pow_le_pow_left`](Nat.pow_le_pow_left.md)
 
+## Week 4
+
+Definitions and notation:
+
+- [`Even`](Even.md)
+- [`Odd`](Odd.md)
+- [`∣` (divides)](dvd.md)
+- [`Int.ModEq` (congruence mod `n`)](Int.ModEq.md)
+- [`¬` (not)](not.md)
+
+Tactics:
+
+- [`rintro`](rintro.md)
+- [`rel`](rel.md)
+- [`mod_cases`](mod_cases.md)
+- [`decide`](decide.md)
+- [`gcongr`](gcongr.md)
+- [`simp`](simp.md)
+
+Named lemmas used by the Module 3 examples:
+
+- [`Int.even_or_odd`](Int.even_or_odd.md)
+- [`Int.modEq_iff_dvd`](Int.modEq_iff_dvd.md)
+- [`Int.ModEq.add`](Int.ModEq.add.md)
+- [`Nat.one_le_iff_ne_zero`](Nat.one_le_iff_ne_zero.md)
+
 ## What gets an entry
 
-Commands, tactics, syntax and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.
+Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.
