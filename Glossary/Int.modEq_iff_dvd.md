@@ -12,6 +12,6 @@ example : (-5 : ℤ) ≡ 1 [ZMOD 3] := by
   norm_num
 ```
 
-**Use it when** you want to prove or use a congruence through a divisibility witness. After `rw [Int.modEq_iff_dvd]`, the goal above is `3 ∣ 1 - -5`, so the witness is `2`. On paper, with `a - b`, it would be `-2`.
+**Use it when** you want to prove or use a congruence through a divisibility witness. The lemma is an [`↔`](iff.md), and [`rw`](rw.md) uses it to replace one side by the other. After `rw [Int.modEq_iff_dvd]`, the goal above is `3 ∣ 1 - -5`, so the witness is `2`. On paper, with `a - b`, it would be `-2`.
 
 **Reference.** [Mathlib documentation — `Int.modEq_iff_dvd`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Int/ModEq.html#Int.modEq_iff_dvd)

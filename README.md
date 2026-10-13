@@ -36,7 +36,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | 2 | 1 | [Proofs by Calculation](Modules/01-proofs-by-calculation/01-Proofs%20by%20Calculation.md) |
 | 3 | 2 | [Proofs with Structure](Modules/02-proofs-with-structure/02-Proofs%20with%20Structure.md) |
 | 4 | 3 | [Parity, Divisibility & Number Theory](Modules/03-parity-divisibility-number-theory/03-Parity%20Divisibility%20%26%20Number%20Theory.md) |
-| 5 | 4 | Proofs with Structure, II |
+| 5 | 4 | [Proofs with Structure, II](Modules/04-proofs-with-structure-ii/04-Proofs%20with%20Structure%20II.md) |
 | 6 | — | **Consolidation week** — extended practice across Modules 0–4 |
 | 7 | 5 | Logic |
 | 8 | 6 | Induction |
@@ -80,6 +80,7 @@ This repository is not a channel for submitting coursework — see [Contributing
 - [Module 1 — Proofs by Calculation](Slides/1-Proofs-by-Calculation-slides.html)
 - [Module 2 — Proofs with Structure](Slides/2-Proofs-with-Structure-slides.html)
 - [Module 3 — Parity, Divisibility & Number Theory](Slides/3-Parity-Divisibility-Number-Theory-slides.html)
+- [Module 4 — Proofs with Structure, II](Slides/4-Proofs-with-Structure-II-slides.html)
 
 Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 

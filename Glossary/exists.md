@@ -11,6 +11,6 @@ example : ∃ n : ℤ, 12 * n = 84 := by
   norm_num
 ```
 
-**Use it when** a statement asks for some value with a property. Prove it with `use` and a witness; take a hypothesis `h : ∃ x, P x` apart with `obtain ⟨x, hx⟩ := h`. Type `∃` as `\exists`.
+**Use it when** a statement asks for some value with a property. Prove it with `use` and a witness; take a hypothesis `h : ∃ x, P x` apart with `obtain ⟨x, hx⟩ := h`. Type `∃` as `\exists`. For "exactly one", see [`∃!`](exists-unique.md).
 
 **Reference.** [Theorem Proving in Lean 4 — Quantifiers and Equality](https://lean-lang.org/theorem_proving_in_lean4/Quantifiers-and-Equality/)

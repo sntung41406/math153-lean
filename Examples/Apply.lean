@@ -7,3 +7,7 @@ import Mathlib
 example {x : ℚ} (h : x < 1) : x ≠ 1 := by
   apply ne_of_lt
   exact h
+
+example {a : ℝ} (h : ∀ y : ℝ, y ^ 2 ≤ 4 → y ≤ a) : 2 ≤ a := by
+  apply h
+  norm_num
