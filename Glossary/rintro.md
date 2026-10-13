@@ -1,6 +1,6 @@
 # `rintro`
 
-**Meaning.** `rintro` assumes the hypothesis of the goal and takes it apart with a pattern, in one step. It works like an assumption followed by [`obtain`](obtain.md). The special pattern `rfl` assumes an equation `x = a` and replaces `x` by `a` everywhere.
+**Meaning.** `rintro` assumes the hypothesis of the goal and takes it apart with a pattern, in one step. It works like [`intro`](intro.md) followed by [`obtain`](obtain.md). The special pattern `rfl` assumes an equation `x = a` and replaces `x` by `a` everywhere.
 
 **Example.**
 ```lean
@@ -13,6 +13,6 @@ example : ¬ (2 : ℤ) ∣ 7 := by
   omega
 ```
 
-**Use it when** the goal is "if … then …" or a [`¬`](not.md) statement, and you want to use its hypothesis immediately. Above, `rintro ⟨k, hk⟩` assumes `2 ∣ 7` and extracts `hk : 7 = 2 * k`.
+**Use it when** the goal is "if … then …" or a [`¬`](not.md) statement, and you want to use its hypothesis immediately. Above, `rintro ⟨k, hk⟩` assumes `2 ∣ 7` and extracts `hk : 7 = 2 * k`. The two lines `intro h` and `obtain ⟨k, hk⟩ := h` do the same; both styles are fine.
 
 **Reference.** [Lean documentation — `rintro`](https://leanprover-community.github.io/mathlib4_docs/Init/RCases.html#Lean.Parser.Tactic.rintro)

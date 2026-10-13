@@ -19,6 +19,6 @@ example {x : ℝ} (h : x = 1 ∨ x = -1) : x ^ 2 = 1 := by
     norm_num
 ```
 
-**Use it when** a hypothesis is an "and", "or" or "there exists" statement and you need its pieces. For `∃ b, P b`, the pattern `⟨b, hb⟩` gives a new variable `b` and the fact `hb : P b`. The angle brackets `⟨ ⟩` also appear later for *building* such statements.
+**Use it when** a hypothesis is an "and", "or" or "there exists" statement and you need its pieces. For `∃ b, P b`, the pattern `⟨b, hb⟩` gives a new variable `b` and the fact `hb : P b`. For a unique-existence hypothesis [`∃!`](exists-unique.md) `x, P x`, the pattern `⟨x, hx, huniq⟩` gives the witness, its property, and the uniqueness condition. The angle brackets `⟨ ⟩` also appear later for *building* such statements.
 
 **Reference.** [Lean 4 documentation — `rcases` and `obtain`](https://lean4.dev/tactics/mathlib/rcases)

@@ -84,6 +84,38 @@ Named lemmas used by the Module 3 examples:
 - [`Int.ModEq.add`](Int.ModEq.add.md)
 - [`Nat.one_le_iff_ne_zero`](Nat.one_le_iff_ne_zero.md)
 
+## Week 5
+
+Notation:
+
+- [`∀` (for all)](forall.md)
+- [`→` (implies)](implies.md)
+- [`↔` (if and only if)](iff.md)
+- [`∃!` (there exists a unique)](exists-unique.md)
+- [`False`](False.md)
+
+Tactics:
+
+- [`intro`](intro.md)
+- [`dsimp`](dsimp.md)
+- [`contradiction`](contradiction.md)
+- [`by_contra`](by_contra.md)
+- [`interval_cases`](interval_cases.md)
+
+Definitions:
+
+- [`Nat.Prime`](Nat.Prime.md)
+- [`IsCoprime`](IsCoprime.md)
+
+Named lemmas used by the Module 4 examples:
+
+- [`not_lt`](not_lt.md)
+- [`Nat.prime_def`](Nat.prime_def.md)
+- [`Nat.le_of_dvd`](Nat.le_of_dvd.md)
+- [`Nat.pos_of_dvd_of_pos`](Nat.pos_of_dvd_of_pos.md)
+
+Entries from earlier weeks that gain a new use this week: [`constructor`](constructor.md) (splitting `↔`), [`apply`](apply.md) (with a `∀ … → …` hypothesis), [`rw`](rw.md) (rewriting with `↔`), and [`obtain`](obtain.md) (taking `∃!` apart).
+
 ## What gets an entry
 
 Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.

@@ -8,3 +8,10 @@ example {a b : ℝ} (ha : a = 9) (hb : b = 1) : a = 9 ∧ b = 1 := by
   constructor
   · exact ha
   · exact hb
+
+example {x : ℝ} : x + 1 = 3 ↔ x = 2 := by
+  constructor
+  · intro h
+    linarith
+  · intro h
+    linarith
