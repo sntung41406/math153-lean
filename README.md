@@ -81,6 +81,7 @@ This repository is not a channel for submitting coursework — see [Contributing
 - [Module 2 — Proofs with Structure](Slides/2-Proofs-with-Structure-slides.html)
 - [Module 3 — Parity, Divisibility & Number Theory](Slides/3-Parity-Divisibility-Number-Theory-slides.html)
 - [Module 4 — Proofs with Structure, II](Slides/4-Proofs-with-Structure-II-slides.html)
+- [Module 5 — Logic](Slides/5-Logic-slides.html)
 
 Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 
