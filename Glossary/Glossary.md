@@ -116,6 +116,25 @@ Named lemmas used by the Module 4 examples:
 
 Entries from earlier weeks that gain a new use this week: [`constructor`](constructor.md) (splitting `↔`), [`apply`](apply.md) (with a `∀ … → …` hypothesis), [`rw`](rw.md) (rewriting with `↔`), and [`obtain`](obtain.md) (taking `∃!` apart).
 
+## Week 7
+
+Notation:
+
+- [`Prop`](Prop.md)
+- [`Type*`](Type.md)
+
+Tactics:
+
+- [`by_cases`](by_cases.md)
+- [`push Not`](push-not.md)
+- [`contrapose!`](contrapose.md)
+
+Named lemmas used by the Module 5 examples:
+
+- [`Int.not_even_iff_odd`](Int.not_even_iff_odd.md)
+
+Entries from earlier weeks that gain a new use this week: [`∧`](and.md), [`∨`](or.md), and [`¬`](not.md) (as connectives between arbitrary propositions), [`obtain`](obtain.md) and [`left`/`right`](left-right.md) (taking apart and building `∨`), [`contradiction`](contradiction.md) (closing the impossible case of a negation rule), and [`rfl`](rfl.md) (closing an `↔` whose two sides are the same).
+
 ## What gets an entry
 
 Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.
