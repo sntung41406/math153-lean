@@ -38,7 +38,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | 4 | 3 | [Parity, Divisibility & Number Theory](Modules/03-parity-divisibility-number-theory/03-Parity%20Divisibility%20%26%20Number%20Theory.md) |
 | 5 | 4 | [Proofs with Structure, II](Modules/04-proofs-with-structure-ii/04-Proofs%20with%20Structure%20II.md) |
 | 6 | — | **Consolidation week** — extended practice across Modules 0–4 |
-| 7 | 5 | Logic |
+| 7 | 5 | [Logic](Modules/05-logic/05-Logic.md) |
 | 8 | 6 | Induction |
 | 9 | 7 | Functions |
 | 10 | 8 | Sets |
