@@ -159,7 +159,7 @@ Uses 2 and 3 look alike but answer different goals. In use 2 the goal is "$\neg 
 
 Now assume, for contradiction, that $a,b$ are coprime and $a^2=2b^2$. Then $a^2$ is even, so $a$ is even: $a=2c$. Substituting, $4c^2=2b^2$, so $b^2=2c^2$ is even, and $b$ is even: $b=2d$. Since $a,b$ are coprime, $ua+vb=1$ for some integers $u,v$. But then $1 = u(2c)+v(2d) = 2(uc+vd)$ would be even, which is impossible.
 
-This is not yet the full theorem. To conclude that $\sqrt2$ is irrational, one also needs that every fraction can be written with coprime numerator and denominator; that step comes later in the course.
+This is not yet the full theorem. To conclude that $\sqrt2$ is irrational this way, one would also need that every fraction can be written with coprime numerator and denominator. Module 6 completes the proof by a different route, descent, which does not need that fact: [Module 6 - Square root of two by descent](../06-induction/Lean/Module%206%20-%20Square%20root%20of%20two%20by%20descent.md).
 
 See this proof formalized in Lean: [Module 4 - Coprime core of the √2 argument](Lean/Module%204%20-%20Coprime%20core%20of%20the%20sqrt%202%20argument.md)
 

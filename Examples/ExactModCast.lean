@@ -1,0 +1,8 @@
+-- GENERATED FILE — do not edit by hand.
+-- Extracted from Glossary/exact_mod_cast.md by scripts/extract_lean_examples.py.
+-- Edit the Markdown source and re-run the publication pipeline instead.
+
+import Mathlib
+
+example {a b : ℕ} (h : (a : ℝ) = b) : a = b := by
+  exact_mod_cast h

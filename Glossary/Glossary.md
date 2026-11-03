@@ -135,6 +135,38 @@ Named lemmas used by the Module 5 examples:
 
 Entries from earlier weeks that gain a new use this week: [`∧`](and.md), [`∨`](or.md), and [`¬`](not.md) (as connectives between arbitrary propositions), [`obtain`](obtain.md) and [`left`/`right`](left-right.md) (taking apart and building `∨`), [`contradiction`](contradiction.md) (closing the impossible case of a negation rule), and [`rfl`](rfl.md) (closing an `↔` whose two sides are the same).
 
+## Week 8
+
+Tactics:
+
+- [`induction`](induction.md)
+- [`push_cast`](push_cast.md)
+- [`exact_mod_cast`](exact_mod_cast.md)
+
+Syntax:
+
+- [Pattern matching and recursive definitions](pattern-matching.md)
+
+Definitions:
+
+- [`Int.natAbs`](Int.natAbs.md)
+- [`Irrational`](Irrational.md)
+- [`Rat.num` and `Rat.den`](Rat.num-den.md)
+
+Named lemmas used by the Module 6 examples:
+
+- [`Nat.le_induction`](Nat.le_induction.md)
+- [`Nat.strong_induction_on`](Nat.strong_induction_on.md)
+- [`Nat.exists_dvd_of_not_prime2`](Nat.exists_dvd_of_not_prime2.md)
+- [`dvd_refl`](dvd_refl.md)
+- [`dvd_trans`](dvd_trans.md)
+- [`Rat.den_nz`](Rat.den_nz.md)
+- [`Rat.mul_den_eq_num`](Rat.mul_den_eq_num.md)
+- [`Real.sq_sqrt`](Real.sq_sqrt.md)
+- [`mul_pow`](mul_pow.md)
+
+Entries from earlier weeks that gain a new use this week: [`obtain`](obtain.md) (splitting an `∨` inductive hypothesis), [`rel`](rel.md) (substituting congruences inside an inductive step), and [`gcongr`](gcongr.md) (using an inductive hypothesis from the context).
+
 ## What gets an entry
 
 Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.
