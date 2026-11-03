@@ -62,7 +62,7 @@ example : ¬ ∃ a b : ℤ, IsCoprime a b ∧ a ^ 2 = 2 * b ^ 2 := by
 - **`b` is even.** Substituting `hc` into `h2` gives $(c+c)^2=2b^2$, that is $4c^2=2b^2$, so $b^2=c^2+c^2$. Again the helper applies. Write `hd : b = d + d`.
 - **Contradiction.** [`IsCoprime`](../../../Glossary/IsCoprime.md) `a b` means there are integers `u`, `v` with `huv : u * a + v * b = 1`. This is the Bézout form of "coprime" from Module 3. Substituting `a = c + c` and `b = d + d` gives `h3 : 2 * (u * c + v * d) = 1`: the number $1$ would be even. `omega` closes the goal.
 - In words: if $a^2=2b^2$ then $a$ and $b$ are both even, so they share the factor $2$ and cannot be coprime.
-- What is still missing for "$\sqrt2$ is irrational": one must show that every fraction can be written with coprime numerator and denominator. That step is deferred, as Module 3 announced.
+- What this argument still needs for "$\sqrt2$ is irrational": that every fraction can be written with coprime numerator and denominator. Module 6 completes the proof by descent, without that fact: [Module 6 - Square root of two by descent](../../06-induction/Lean/Module%206%20-%20Square%20root%20of%20two%20by%20descent.md).
 - This block uses `even_of_even_sq` from the first block, so the two blocks belong in the same file, in this order.
 
 ## Back-link

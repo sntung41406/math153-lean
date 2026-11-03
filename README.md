@@ -39,7 +39,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | 5 | 4 | [Proofs with Structure, II](Modules/04-proofs-with-structure-ii/04-Proofs%20with%20Structure%20II.md) |
 | 6 | — | **Consolidation week** — extended practice across Modules 0–4 |
 | 7 | 5 | [Logic](Modules/05-logic/05-Logic.md) |
-| 8 | 6 | Induction |
+| 8 | 6 | [Induction](Modules/06-induction/06-Induction.md) |
 | 9 | 7 | Functions |
 | 10 | 8 | Sets |
 | 11 | 9 | Relations |
