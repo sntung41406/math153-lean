@@ -167,6 +167,31 @@ Named lemmas used by the Module 6 examples:
 
 Entries from earlier weeks that gain a new use this week: [`obtain`](obtain.md) (splitting an `∨` inductive hypothesis), [`rel`](rel.md) (substituting congruences inside an inductive step), and [`gcongr`](gcongr.md) (using an inductive hypothesis from the context).
 
+## Week 9
+
+Tactics:
+
+- [`cases`](cases.md)
+- [`ext`](ext.md)
+- [`choose`](choose.md)
+- [`show`](show.md)
+
+Definitions:
+
+- [`Set.image` and `Set.preimage`](Set.image-preimage.md)
+- [`Function.LeftInverse` and `Function.RightInverse`](Function.LeftInverse-RightInverse.md)
+- [`Prod.fst` and `Prod.snd`](Prod.fst-snd.md)
+- [`Function.Injective`](Function.Injective.md)
+- [`Function.Surjective`](Function.Surjective.md)
+- [`Function.Bijective`](Function.Bijective.md)
+
+Named lemmas used by the Module 7 examples:
+
+- [`congrArg`](congrArg.md)
+- [`congrFun`](congrFun.md)
+
+Entries from earlier weeks that gain a new use this week: [`use`](use.md) (supplying a surjectivity witness, and a witness for an image), [`∃!`](exists-unique.md) (each output of a bijection is hit exactly once), [`obtain`](obtain.md) (taking apart a surjectivity hypothesis and a bijectivity hypothesis), and [`dsimp`](dsimp.md) (applying a `fun` to its input inside a hypothesis).
+
 ## What gets an entry
 
 Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.
