@@ -40,7 +40,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | 6 | — | **Consolidation week** — extended practice across Modules 0–4 |
 | 7 | 5 | [Logic](Modules/05-logic/05-Logic.md) |
 | 8 | 6 | [Induction](Modules/06-induction/06-Induction.md) |
-| 9 | 7 | Functions |
+| 9 | 7 | [Functions](Modules/07-functions/07-Functions.md) |
 | 10 | 8 | Sets |
 | 11 | 9 | Relations |
 | 12 | — | **Consolidation week** — extended practice across Modules 7–9 |
@@ -82,6 +82,7 @@ This repository is not a channel for submitting coursework — see [Contributing
 - [Module 3 — Parity, Divisibility & Number Theory](Slides/3-Parity-Divisibility-Number-Theory-slides.html)
 - [Module 4 — Proofs with Structure, II](Slides/4-Proofs-with-Structure-II-slides.html)
 - [Module 5 — Logic](Slides/5-Logic-slides.html)
+- [Module 7 — Functions](Slides/7-Functions-slides.html)
 
 Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 
