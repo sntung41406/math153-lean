@@ -192,6 +192,31 @@ Named lemmas used by the Module 7 examples:
 
 Entries from earlier weeks that gain a new use this week: [`use`](use.md) (supplying a surjectivity witness, and a witness for an image), [`∃!`](exists-unique.md) (each output of a bijection is hit exactly once), [`obtain`](obtain.md) (taking apart a surjectivity hypothesis and a bijectivity hypothesis), and [`dsimp`](dsimp.md) (applying a `fun` to its input inside a hypothesis).
 
+## Week 10
+
+Tactics:
+
+- [`split_ifs`](split_ifs.md)
+
+Syntax:
+
+- [`let`](let.md)
+- [`if … then … else`](if-then-else.md)
+
+Definitions:
+
+- [`Set`](Set.md)
+- [Set operations: `∪`, `∩`, `\`, `ᶜ`](set-operations.md)
+- [Finite sets `{a, b, c}` and singletons `{a}`](Set.insert-singleton.md)
+- [`Set.powerset` (`𝒫`)](Set.powerset.md)
+- [`Set.prod` (`×ˢ`)](Set.prod.md)
+
+Named lemmas used by the Module 8 examples:
+
+- [`Nat.odd_iff`](Nat.odd_iff.md)
+
+Entries from earlier weeks that gain a new use this week: [`ext`](ext.md) (reducing a set equality to an iff), [`Set.image` and `Set.preimage`](Set.image-preimage.md) (proving how images and preimages interact with unions and intersections), [`rintro`](rintro.md) (taking apart a membership in an image, a union, or an intersection), [`Function.LeftInverse` and `Function.RightInverse`](Function.LeftInverse-RightInverse.md) (proving that a listing of the integers is a bijection), and [`Int.natAbs`](Int.natAbs.md) (inside a piecewise definition, alongside [`omega`](omega.md)).
+
 ## What gets an entry
 
 Commands, tactics, syntax, Mathlib definitions such as `Even`, and editor features that the course teaches get an entry. A named Mathlib lemma gets an entry when students need it to read, reuse, or understand a released example — including a lemma that only supports the main idea, such as `sq_nonneg` inside an `nlinarith` call or `mul_right_cancel₀` behind a cancellation step. A lemma no released example mentions by name does not get an entry yet.

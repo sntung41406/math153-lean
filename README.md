@@ -41,7 +41,7 @@ The curriculum is structured into four progressive phases, moving from basic com
 | 7 | 5 | [Logic](Modules/05-logic/05-Logic.md) |
 | 8 | 6 | [Induction](Modules/06-induction/06-Induction.md) |
 | 9 | 7 | [Functions](Modules/07-functions/07-Functions.md) |
-| 10 | 8 | Sets |
+| 10 | 8 | [Sets](Modules/08-sets/08-Sets.md) |
 | 11 | 9 | Relations |
 | 12 | — | **Consolidation week** — extended practice across Modules 7–9 |
 | 13 | 10 | Groups and Rings |
@@ -84,6 +84,7 @@ This repository is not a channel for submitting coursework — see [Contributing
 - [Module 5 — Logic](Slides/5-Logic-slides.html)
 - [Module 6 — Induction](Slides/6-Induction-slides.html)
 - [Module 7 — Functions](Slides/7-Functions-slides.html)
+- [Module 8 — Sets](Slides/8-Sets-slides.html)
 
 Slides are published once each deck has had its presenter notes stripped and reviewed for student-safe content.
 
